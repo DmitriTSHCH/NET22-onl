@@ -11,7 +11,7 @@ namespace Calculator
         static void Main(string[] args)
         {
             Console.WriteLine("Выберете операцию (+,-,/,*):");
-            char oper = Console.ReadKey();
+            string oper = Console.ReadLine();
             Console.WriteLine("Выберете число1:");
             int num1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Выберете число2:");
@@ -19,19 +19,20 @@ namespace Calculator
 
             switch (oper)
             {
-                case '+':
+                case "+":
                     Console.WriteLine((num1 + num2));
                     break;
-                case '-':
+                case "-":
                     Console.WriteLine((num1 - num2));
                     break;
-                case '*':
+                case "*":
                     Console.WriteLine((num1 * num2));
                     break;
-                case '/':
+                case "/":
                     Console.WriteLine((num1 / num2));
                     break;
             }
+            Console.ReadKey();
         }
     }
 }
