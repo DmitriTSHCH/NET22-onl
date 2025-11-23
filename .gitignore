@@ -1,0 +1,16 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/Cycles/.vs/Cycles
+/Cycles/Cycles/bin/Debug
+/Cycles/Cycles/obj/Debug
+/Cycles/Cycles/Properties
+/Arrays/Arrays/bin/Debug
+/Arrays/Arrays/obj/Debug
+/Arrays/.vs/Arrays
+/Arrays/Arrays/Properties
+/Lists/.vs/Lists
+/Lists/Lists/bin/Debug
+/Lists/Lists/obj/Debug
+/Lists/Lists/Properties
