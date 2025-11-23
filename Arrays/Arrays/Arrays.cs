@@ -17,8 +17,8 @@ namespace Cycles_Arrays_Lists
             while (true)
             {
                 PrintArray(matrix);
-                Console.SetCursorPosition(0, 0);
-                Console.WriteLine("(1)Создать новую матрицу;\n(2)Подсчитать количество положительных и отрицательных чисел;\n(3)Оставить только четные значения в четных строках и нечетные - в нечетных строках;\n(4)Подсчет количества чесел в матрице.\n\nВыберите действие(введите номер варианта): ");
+                Console.SetCursorPosition(0, 7);
+                Console.WriteLine("(1)Создать новую матрицу;\n(2)Подсчитать количество положительных и отрицательных чисел;\n(3)Оставить только четные значения в четных строках и нечетные - в нечетных строках;\n(4)Подсчет количества различных чисел в матрице.\n\nВыберите действие(введите номер варианта): ");
                 switch (Console.ReadLine())
                 {
                     case "1":
@@ -40,7 +40,7 @@ namespace Cycles_Arrays_Lists
                             }
                         }
                         PrintArray(matrix);
-                        Console.SetCursorPosition(0, 0);
+                        Console.SetCursorPosition(0, 7);
                         Console.WriteLine($"Количество положительных: {quantityPositiveNumber}\nКоличество отрицательных: {quantityNegativeNumber}\nКоличество нулей: { matrix.Length - (quantityPositiveNumber + quantityNegativeNumber) }\nНажмите любую клавишу для продолжения");
                         Console.ReadKey();
                         break;
@@ -60,12 +60,35 @@ namespace Cycles_Arrays_Lists
                             }
                         }
                         PrintArrayWithoutZero(matrix);
-                        Console.SetCursorPosition(0, 0);
+                        Console.SetCursorPosition(0, 7);
                         Console.WriteLine($"Нажмите любую клавишу для продолжения");
                         Console.ReadKey();
                         break;
                     case "4":
-                        //подсчет количества через слварь
+                        var quantityAllNumbers = new Dictionary<int, int>()
+                        { [0] = 0 };
+                        foreach (int i in matrix)
+                        {
+                            if (quantityAllNumbers.ContainsKey(i))
+                            {
+                                quantityAllNumbers[i]++;
+                            }
+                            else
+                            {
+                                quantityAllNumbers.Add(i, 1);
+                            }
+                        }
+
+                        PrintArray(matrix);
+                        Console.SetCursorPosition(0, 7);
+
+                        foreach (var v in quantityAllNumbers)
+                        {
+                            Console.WriteLine($"Число: {v.Key} находится в матрице {v.Value}");
+                        }
+
+                        Console.WriteLine($"Нажмите любую клавишу для продолжения");
+                        Console.ReadKey();
                         break;
                 }
             }
@@ -73,7 +96,7 @@ namespace Cycles_Arrays_Lists
         static int[,] CreateArray()
         {
             Console.Clear();
-            Console.SetCursorPosition(0, 0);
+            Console.SetCursorPosition(0, 7);
             int n, m;
             do
             {
@@ -105,7 +128,6 @@ namespace Cycles_Arrays_Lists
         static void PrintArray(int[,] array)
         {
             Console.Clear();
-            Console.SetCursorPosition(0, 10);
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -125,7 +147,6 @@ namespace Cycles_Arrays_Lists
         static void PrintArrayWithoutZero(int[,] array)
         {
             Console.Clear();
-            Console.SetCursorPosition(0, 10);
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
