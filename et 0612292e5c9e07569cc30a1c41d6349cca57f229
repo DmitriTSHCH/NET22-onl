@@ -1,0 +1,49 @@
+[33mcommit 0612292e5c9e07569cc30a1c41d6349cca57f229[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mlesson5[m[33m)[m
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Mon Nov 24 22:22:12 2025 +0300
+
+    added gitignore
+
+[33mcommit a1ce9c75e1bb3633460be342119fed769b02740e[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Sun Nov 16 20:01:16 2025 +0300
+
+    cherry-picked README.md
+
+[33mcommit 6fc7bf29a319fb4fe0214ad1a089d429f48aba4f[m
+Merge: c2eda41 85891cf
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Sun Nov 16 19:12:17 2025 +0300
+
+    Merge branch 'description'
+    merge description
+
+[33mcommit c2eda4148c9acecdcad1f06ade6f7465076d1e8f[m
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Sun Nov 16 18:37:57 2025 +0300
+
+    create README.md joke edition
+
+[33mcommit 85891cfa2c3a6324aa5196bcb80e50f28c349791[m
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Sun Nov 16 15:23:35 2025 +0300
+
+    create README.md
+
+[33mcommit 3b8b2e59250d89b757db3923bedf8116cb649d8a[m
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Sun Nov 16 14:54:28 2025 +0300
+
+    create jokesOfTheDay.txt
+
+[33mcommit 1ae39baab7923c10d51997837aa4cc07fce0cbc9[m
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Sun Nov 16 14:44:39 2025 +0300
+
+    create Lermontov.txt
+
+[33mcommit 1550588b7bba2374538fc969fcbc87302b418929[m
+Author: DmitriTSHCH <tshchetko@mail.ru>
+Date:   Sun Nov 16 14:41:24 2025 +0300
+
+    creat Pushkin.txt
