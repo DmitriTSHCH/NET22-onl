@@ -5,3 +5,9 @@
 /Cycles
 /Arrays
 /Lists
+*/.vs
+*/obj
+*/bin
+/Chars&Strings/Chars&Strings/obj/Debug
+/Chars&Strings/Chars&Strings/bin/Debug
+/Chars&Strings/Chars&Strings/Properties
