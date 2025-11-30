@@ -1,0 +1,14 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/Cycles
+/Arrays
+/Lists
+/Chars&Strings
+/jokes
+/Poetry
+/lesson6/Phone/.vs/Phone/CopilotIndices/17.14.1368.60722
+/lesson6/Phone/.vs/Phone
+/lesson6/Phone/Phone/bin/Debug/net9.0
+/lesson6/Phone/Phone/obj
