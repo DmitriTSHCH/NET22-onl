@@ -1,0 +1,13 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/Cycles
+/Arrays
+/Lists
+/Chars&Strings
+/lesson6
+/lesson7/PlasticCard/.vs/PlasticCard/CopilotIndices/17.14.1368.60722
+/lesson7/PlasticCard/.vs
+/lesson7/PlasticCard/PlasticCard/bin/Debug/net9.0
+/lesson7/PlasticCard/PlasticCard/obj
