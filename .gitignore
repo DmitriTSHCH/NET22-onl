@@ -1,0 +1,19 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/Poetry
+/jokes
+/Cycles
+/Arrays
+/Lists
+/Chars&Strings
+/lesson6
+/lesson7
+/lesson9
+/lesson8/Geometri/.vs
+/lesson8/Geometri/Geometri/obj
+/lesson8/Geometri/Geometri/bin
+/lesson8/Vocation/.vs
+/lesson8/Vocation/Vocation/bin/Debug/net9.0
+/lesson8/Vocation/Vocation/obj
