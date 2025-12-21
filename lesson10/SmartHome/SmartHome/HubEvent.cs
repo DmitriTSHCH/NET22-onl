@@ -18,7 +18,7 @@ namespace SmartHome
     {
         public EventType EventType { get; private set; }
         private DateTime EventDateTime;
-        private byte EventPriority;
+        public byte EventPriority { get; private set; }
 
         public HubEvent(EventType _eventType)
         {
@@ -39,7 +39,7 @@ namespace SmartHome
                     EventPriority = 4;
                     break;
                 case "intercomCall":
-                    EventPriority = 2;
+                    EventPriority = 3;
                     break;
             }
             Console.WriteLine($"Произошло событие:\n{ToString()}");

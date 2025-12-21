@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SmartHome
 {
-    internal class SmartLamp : ISmartDevice
+    internal class SecuritySiren : ISmartDevice
     {
         protected string Name { get; }
         string ISmartDevice.Name => Name;
         protected readonly SmartHomeHub SmartHomeHub;
 
-        public SmartLamp(string _name, SmartHomeHub _smartHomeHub)
+        public SecuritySiren(string _name, SmartHomeHub _smartHomeHub)
         {
             Name = _name;
             SmartHomeHub = _smartHomeHub;
@@ -21,9 +21,9 @@ namespace SmartHome
 
         public void ReactToEvent(HubEvent eventData)
         {
-            if (Convert.ToString(eventData.EventType) == "switchLight" || eventData.EventPriority > 3)
+            if (eventData.EventPriority > 3)
             {
-                Console.WriteLine($"Лампа {Name} включена");
+                Console.WriteLine($"Сирена {Name} включена");
             }
         }
     }

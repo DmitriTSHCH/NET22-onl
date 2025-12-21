@@ -15,9 +15,9 @@ namespace SmartHome
         {
             OnEvent?.Invoke(hubEvent);
         }
-        public HubEvent TriggerMotion(bool _secureActive)
+        public HubEvent TriggerMotion(bool _isSecureActive)
         {
-            if (_secureActive)
+            if (_isSecureActive)
             {
                 HubEvent _hubEvent = new HubEvent(EventType.securityBreach);
                 RaiseEvent(_hubEvent);
