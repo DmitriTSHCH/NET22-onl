@@ -1,0 +1,19 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/Cycles
+/Arrays
+/Lists
+/Chars&Strings
+/jokes
+/Poetry
+/lesson6
+/lesson7
+/lesson8
+/lesson9
+/lesson10
+/lesson11
+/lesson12/Login/.vs/Login
+/lesson12/Login/Login/bin/Debug/net9.0
+/lesson12/Login/Login/obj
