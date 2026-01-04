@@ -1,0 +1,21 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/Cycles
+/Arrays
+/Lists
+/Chars&Strings
+/jokes
+/Poetry
+/lesson6
+/lesson7
+/lesson8
+/lesson9
+/lesson10
+/lesson11
+/lesson12
+/lesson13
+/lesson14/Weather/.vs
+/lesson14/Weather/Weather/bin/Debug/net9.0
+/lesson14/Weather/Weather/obj
