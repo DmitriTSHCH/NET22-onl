@@ -1,7 +1,12 @@
+using MvcProject.Interfaces;
+using MvcProject.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<IProductService,ProductService>();
 
 var app = builder.Build();
 

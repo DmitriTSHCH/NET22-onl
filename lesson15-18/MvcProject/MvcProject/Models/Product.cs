@@ -5,14 +5,17 @@ namespace MvcProject.Models
     public enum Category { electronics, furniture, cloth, other, [EditorBrowsable(EditorBrowsableState.Never)] unspecified }
     public class Product
     {
-        public int Id { get; set; }
+        private static int _quantity = 0;
+        public int Id { get; private set; }
         public string Name { get; set; }
         public Category? Category { get; set; }
         public string? Description { get; set; }
 
-        public Product (int id, string name, Category? category, string? description)
+        public Product (string name, Category? category, string? description)
         {
-            Id = id;
+            _quantity += 1;
+            Id = _quantity;
+
             Name = name;
 
             if (category != null)
@@ -25,6 +28,7 @@ namespace MvcProject.Models
             }
 
             Description = description ?? "*отсутствует*";
+
         }
         public void Print()
         {
