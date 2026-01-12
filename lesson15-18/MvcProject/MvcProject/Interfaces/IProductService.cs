@@ -8,7 +8,6 @@ namespace MvcProject.Interfaces
         public void AddProduct(string name, string? category, string? description);
         public void DeleteProduct(int productId);
         public void RedactProduct(int productId, string? name, string? category, string? description);
-        public int GetProductCount();
-        public int GetProductCountByCategory(string category);
+        public void GetProductCount();
     }
 }

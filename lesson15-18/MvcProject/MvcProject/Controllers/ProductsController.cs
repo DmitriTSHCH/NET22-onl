@@ -18,7 +18,7 @@ namespace MvcProject.Controllers
 
         public IActionResult Index(/*string action,*/ float? productId, string? name, string? category, string? description)
         {
-            /*switch (action)
+            /*switch (action)   //не получается передать значение string action из формы html
             {
                 case "delete":
                     _service.DeleteProduct(Convert.ToInt32(productId));

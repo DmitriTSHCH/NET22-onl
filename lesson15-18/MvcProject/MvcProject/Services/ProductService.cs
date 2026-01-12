@@ -1,5 +1,6 @@
 ﻿using MvcProject.Interfaces;
 using MvcProject.Models;
+using System.Linq;
 
 namespace MvcProject.Services
 {
@@ -88,21 +89,27 @@ namespace MvcProject.Services
                 }
             }
         }
-        public int GetProductCount()
+        public void GetProductCount()
         {
-            return products.Count;
-        }
-        public int GetProductCountByCategory(string category)
-        {
-            int count = 0;
+            var productsCount = new Dictionary<Category, int>();
+            string result = "Количество продуктов по категориям: \n";
             for (int i = 0; i < products.Count; i++)
             {
-                if (products[i].Category.ToString() == category)
+                if (!productsCount.ContainsKey(products[i].Category))
                 {
-                    products.Remove(products[i]);
+                    productsCount.Add(products[i].Category, 1);
+                }
+                else 
+                {
+                    productsCount[products[i].Category]++;
                 }
             }
-            return count;
+            foreach (KeyValuePair<Category, int> pair in productsCount) 
+            {
+                result += $"{ pair.Key.ToString() } - { pair.Value.ToString() }; \n";
+            }
+            result += $"\nВсего - {products.Count}.\n";
+            Product.resultCountNow = result;
         }
     }
 }
