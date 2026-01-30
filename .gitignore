@@ -1,4 +1,4 @@
-﻿################################################################################
+﻿a################################################################################
 # Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -13,3 +13,17 @@
 /lesson8
 /lesson9
 /lesson10
+/lesson11
+/lesson12
+/lesson13
+/lesson14
+/lesson15-18
+/lesson19
+/lesson20
+/lesson21
+/lesson23/CodeFirst/.vs
+/lesson23/CodeFirst/CodeFirst/bin/Debug/net9.0
+/lesson23/CodeFirst/CodeFirst/obj
+/lesson23/DbFirst/.vs
+/lesson23/DbFirst/DbFirst/bin/Debug/net9.0
+/lesson23/DbFirst/DbFirst/obj
