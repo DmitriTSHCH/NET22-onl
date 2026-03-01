@@ -13,7 +13,7 @@ namespace LibraryDb
 
         public LibraryDbContext()
         {
-            Database.EnsureCreated();
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -47,6 +47,8 @@ namespace LibraryDb
             modelBuilder.ApplyConfiguration(new BookDetailConfigurations());
             modelBuilder.ApplyConfiguration(new AuthorBiographyConfigurations());
             modelBuilder.ApplyConfiguration(new MemberContactConfigurations());
+
+            modelBuilder.Entity<BookCategory>().HasNoKey();
 
             base.OnModelCreating(modelBuilder);
         }

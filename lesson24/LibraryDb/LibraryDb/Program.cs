@@ -1,4 +1,7 @@
 using LibraryDb;
+using LibraryDb.Interfaces;
+using LibraryDb.Repositories;
+using LibraryDb.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +16,12 @@ builder.Services.AddDbContext<LibraryDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<BooksRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
+
 var db = new LibraryDbContext();
 
 var app = builder.Build();
@@ -21,6 +30,8 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

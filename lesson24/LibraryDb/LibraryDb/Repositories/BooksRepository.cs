@@ -48,7 +48,7 @@ namespace LibraryDb.Repositories
                 .Where(e => e.Id == _id)
                 .ExecuteDelete();
         }
-        public List<BookPublishedAfter2010Dto>? GetBookPublishedAfter2010()
+        public List<BookAutorPublYearDto>? GetBookPublishedAfter2010()
         {
             var booksPublishedAfter2010 = _dbContext.Books
                 .AsNoTracking()
@@ -57,10 +57,93 @@ namespace LibraryDb.Repositories
                     _dbContext.Authors,
                     e => e.AuthorId,
                     j => j.Id,
-                    (e, j) => new BookPublishedAfter2010Dto { Title = e.Title, PublicationYear = e.PublicationYear, AuthorName = $"{j.FirstName} {j.LastName}"})
+                    (e, j) => new BookAutorPublYearDto { Title = e.Title, PublicationYear = e.PublicationYear, AuthorName = $"{j.FirstName} {j.LastName}"})
                 .ToList();
 
             return booksPublishedAfter2010;
+        }
+        public List<ВookWithMultipleCategoriesDto>? GetBookWithMultipleCategories()
+        {
+            var booksWithMultipleCategories = _dbContext.BookCategories
+                .AsNoTracking()
+                .Join(
+                    _dbContext.Categories,
+                    e => e.CategoryId,
+                    j => j.Id,
+                    (e, j) => new { BookId = e.BookId, AddedDate = e.AddedDate, Category = j.Name}
+                )
+                .GroupBy(e => e.BookId)
+                .Select(g => new { BookId = g.Key, Count = g.Count(), CategoriesAddedDatePair = g.ToDictionary(e => e.Category, e => e.AddedDate) })
+                .Where(e => e.Count > 1)
+                .Join(
+                    _dbContext.Books,
+                    e => e.BookId,
+                    j => j.Id,
+                    (e, j) => new ВookWithMultipleCategoriesDto { Title = j.Title, CategoriesAddedDatePair = e.CategoriesAddedDatePair }
+                )
+                .ToList();
+
+            return booksWithMultipleCategories;
+        }
+        public List<BookAutorPublYearDto>? GetBooksWithoutLoan()
+        {
+            var booksWithoutLoan = _dbContext.Books
+                .AsNoTracking()
+                .Join(
+                    _dbContext.Loans
+                    .CountBy(e => e.BookId),
+                    e => e.Id,
+                    j => j.Key,
+                    (e, j) => new { Title = e.Title, AuthorId = e.AuthorId, PublicationYear = e.PublicationYear, Count = j.Value }
+                )
+                .Where(e => e.Count < 1)
+                .Join(
+                    _dbContext.Authors,
+                    e => e.AuthorId,
+                    j => j.Id,
+                    (e, j) => new BookAutorPublYearDto { Title = e.Title, PublicationYear = e.PublicationYear, AuthorName = $"{j.FirstName} {j.LastName}" }
+                )
+                .ToList();
+
+            return booksWithoutLoan;
+        }
+        public List<BookPriceAvgPublisherBookPriceDto>? GetBooksPriceAvgPublisherBookPrice()
+        {
+            var bookPriceAvgPublisherBookPrice = _dbContext.Books
+                .AsNoTracking()
+                .Join(
+                    _dbContext.Books
+                        .GroupBy(e => e.PublisherId)
+                        .Select(e => new { PublisherId = e.Key, AvgPublisherBookPrice = e.Average(e => e.Price) } ),
+                    e => e.PublisherId,
+                    j => j.PublisherId,
+                    (e, j) => new BookPriceAvgPublisherBookPriceDto { Title = e.Title, Price = e.Price, AvgPublisherBookPrice = j.AvgPublisherBookPrice }
+                )
+                .Where(e => e.Price > e.AvgPublisherBookPrice)
+                .ToList(); 
+
+            return bookPriceAvgPublisherBookPrice;
+        }
+        public List<BookAuthorCategoriesLoanCount>? GetBookLoanCount()
+        {
+            var bookPriceAvgPublisherBookPrice = _dbContext.Books
+                .AsNoTracking()
+                .Join(
+                    _dbContext.Authors,
+                    e => e.AuthorId,
+                    j => j.Id,
+                    (e, j) => new { Title = e.Title, AuthorName = $"{j.FirstName} {j.LastName}", Id = e.Id}
+                )
+                .Join(
+                    _dbContext.Loans
+                    .CountBy(e => e.BookId),
+                    e => e.Id,
+                    j => j.Key,
+                    (e, j) => new BookAuthorCategoriesLoanCount { Title = e.Title, AuthorName = e.AuthorName, LoanCount = j.Value }
+                )
+                .ToList();
+
+            return bookPriceAvgPublisherBookPrice;
         }
     }
 }

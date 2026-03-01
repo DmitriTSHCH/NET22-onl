@@ -1,6 +1,6 @@
 ﻿namespace LibraryDb.DtoModels
 {
-    public class BookPublishedAfter2010Dto
+    public class BookAutorPublYearDto
     {
         public string Title { get; set; }
         public DateOnly PublicationYear { get; set; }

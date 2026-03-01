@@ -9,4 +9,3 @@
         public int AuthorId { get; set; }
     }
 }
-string Education, string Awards, string BiographyText, int AuthorId
